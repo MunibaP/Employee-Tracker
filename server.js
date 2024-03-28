@@ -26,7 +26,7 @@ connection.connect(err => {
 // inquirer prompts
 function start() {
     console.log('Starting Inquirer prompts...');
-    inquirer.prompt(
+    inquirer.prompt([
         {
             type: 'list',
             name: 'action',
@@ -47,7 +47,7 @@ function start() {
                 'Exit',
             ],
         }
-    )
+    ])
     .then((answer) => {
         switch (answer.action) {
             case 'View all departments':
@@ -136,15 +136,15 @@ function viewAllEmployees() {
     });
 }
 
-// Function to add a separtment
+// Function to add a department
 function addDepartment() {
-    inquirer.prompt(
+    inquirer.prompt([
         {
             type: 'input',
             name: 'name',
             message: 'Enter the name of the new department:',
         }
-    )
+    ])
     .then((answer) => {
         console.log(answer.name);
         const query = `INSERT INTO departments (department_name) VALUES ('${answer.name}')`;
