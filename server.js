@@ -196,7 +196,7 @@ function addRole() {
                 },
                 (err, res) => {
                     if(err) throw err;
-                    console.log(`Added role${answer.title} with salary ${answer.salary} to the ${answer.department} department in the database.`);
+                    console.log(`Added role ${answer.title} with salary ${answer.salary} to the ${answer.department} department in the database.`);
                     start();
                 }
             );
@@ -217,7 +217,7 @@ function addEmployee() {
         }));
 
         connection.query(
-            'SELECT id, CONCAT(first_name, " ", last_name) AS name FROM employee',
+            'SELECT id, CONCAT(first_name, " ", last_name) AS name FROM employees',
             (error, results) => {
                 if(error) {
                     console.error(error);
@@ -258,7 +258,7 @@ function addEmployee() {
                 ])
                 .then((answer) => {
                     const sql =
-                        `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)`;
+                        `INSERT INTO employees (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)`;
                     const values = [
                         answer.firstName,
                         answer.lastName,
@@ -329,7 +329,7 @@ function addManager() {
                     (employee) => `${employee.first_name} ${employee.last_name}` === answer.manager
                 );
                 const query =
-                'UPDATE employee SET manager_id = ? WHERE id = ? AND role_id IN (SELECT id FROM roles WHERE department_id = ?)';
+                'UPDATE employees SET manager_id = ? WHERE id = ? AND role_id IN (SELECT id FROM roles WHERE department_id = ?)';
                 connection.query(
                     query,
                     [manager.id, employee.id, department.id],
@@ -376,7 +376,7 @@ function updateEmployeeRole() {
                 const role = resRoles.find(
                     (role) => role.title === answer.role
                 );
-                const query = 'UPDATE employee SET role_id = ? WHERE id = ?';
+                const query = 'UPDATE employees SET role_id = ? WHERE id = ?';
                 connection.query(
                     query,
                     [role.id, employee.id],
@@ -515,7 +515,7 @@ function deleteEmployee() {
                 deleteDepartmentRolesEmployees();
                 return;
             }
-            const query = 'DELETE FROM employee WHERE id = ?';
+            const query = 'DELETE FROM employees WHERE id = ?';
             connection.query(query, [answer.id], (err, res) => {
                 if(err) throw err;
                 console.log(`Delete employee with id ${answer.id} from the database`);
@@ -582,7 +582,7 @@ function deleteDepartment() {
         .then((answer) => {
             if(answer.departmentId === 'back') {
                 deleteDepartmentRolesEmployees();
-                return;
+                // return;
             } else {
                 const query = 'DELETE FROM departments WHERE id = ?';
                 connection.query(
