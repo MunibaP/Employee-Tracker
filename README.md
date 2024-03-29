@@ -88,9 +88,9 @@ To clone: git clone https://github.com/your-username/repository-name.git
 5. Simply follow the command line prompts to explore information on departments, roles, or employees.
 
 ## Screenshot
-![Employee-Tracker img_1](/assets/gist_img_1.jpeg)
+![Employee-Tracker img_1](/assets/images/E_tracker_img_1.png)
 
-![Employee-Tracker img_2](/assets/gist_img_1.jpeg)
+![Employee-Tracker img_2](/assets/images/E_tracker_img_2.png)
 
 ![Employee-Tracker img_3](/assets/gist_img_1.jpeg)
 
