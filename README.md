@@ -110,7 +110,7 @@ Contributions to the Employee Tracker are welcome and encouraged. Here are some 
 There are no tests required for this project.
 
 ## Links
-- [Videolink](https://drive.google.com/file/d/1v0W8BCMPtDv8ZoJSKRREjfoPOx1pdRpb/view?usp=sharing)
+- [Video link](https://drive.google.com/file/d/1v0W8BCMPtDv8ZoJSKRREjfoPOx1pdRpb/view?usp=sharing)
 - [GitHub repository](https://github.com/MunibaP/Employee-Tracker.git)
   
 ## Questions
